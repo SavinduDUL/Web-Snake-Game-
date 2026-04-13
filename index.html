@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Modern Snake 🐍</title>
+    <link rel="stylesheet" href="styleS.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container dark-theme" id="app">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-snake"></i>
+                <h1>SERPENT</h1>
+            </div>
+            <div class="controls-header">
+                <button id="theme-btn" class="icon-btn" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+                <button id="sound-btn" class="icon-btn" title="Toggle Sound"><i class="fa-solid fa-volume-up"></i></button>
+            </div>
+        </header>
+        <main>
+            <div class="game-dashboard">
+                <div class="stats-panel">
+                    <div class="stat-box">
+                        <span class="stat-label">SCORE</span>
+                        <span class="stat-value" id="current-score">0</span>
+                    </div>
+                    <div class="stat-box premium">
+                        <span class="stat-label">HIGH SCORE</span>
+                        <span class="stat-value" id="high-score">0</span>
+                    </div>
+                    <div class="settings-group">
+                        <h3>Game Settings</h3>
+                        <div class="setting-item">
+                            <label>Difficulty</label>
+                            <select id="difficulty-select">
+                                <option value="easy">Easy</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                        <div class="setting-item toggle-switch">
+                            <label for="grid-toggle">Show Grid</label>
+                            <label class="switch">
+                                <input type="checkbox" id="grid-toggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="how-to-play">
+                        <h3>How to Play</h3>
+                        <ul>
+                            <li><i class="fa-solid fa-arrows-up-down-left-right"></i> Use arrow keys or swipe to move.</li>
+                            <li><i class="fa-solid fa-apple-whole" style="color:var(--primary)"></i> Eat food to grow.</li>
+                            <li><i class="fa-solid fa-star" style="color:var(--special)"></i> Grab special food for 50 bonus points!</li>
+                            <li><i class="fa-solid fa-skull"></i> Don't hit the walls or yourself.</li>
+                            <li><kbd>Space</kbd> to Pause/Resume.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="game-container">
+                    <div id="game-board-wrapper">
+                        <canvas id="game-canvas" width="400" height="400"></canvas>
+                        
+                        <!-- Overlays -->
+                        <div id="start-screen" class="overlay active">
+                            <h2>Ready to Play?</h2>
+                            <p>Eat, grow, and set a new high score.</p>
+                            <button id="start-btn" class="primary-btn">START GAME</button>
+                        </div>
+                        <div id="pause-screen" class="overlay">
+                            <h2>PAUSED</h2>
+                            <button id="resume-btn" class="primary-btn">RESUME</button>
+                        </div>
+                        <div id="game-over-screen" class="overlay">
+                            <h2>GAME OVER</h2>
+                            <p>Final Score: <span id="final-score">0</span></p>
+                            <button id="restart-btn" class="primary-btn">PLAY AGAIN</button>
+                        </div>
+                        
+                        <div id="loading-screen" class="overlay active">
+                            <div class="loader"></div>
+                            <p>Loading Assets...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-controls">
+                        <button class="d-pad up" id="btn-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <div class="d-pad-row">
+                            <button class="d-pad left" id="btn-left"><i class="fa-solid fa-chevron-left"></i></button>
+                            <button class="d-pad down" id="btn-down"><i class="fa-solid fa-chevron-down"></i></button>
+                            <button class="d-pad right" id="btn-right"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
